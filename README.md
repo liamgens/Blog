@@ -9,3 +9,7 @@ A basic flask app boilerplate project.
 4. Run the command `pip install -r requirements.txt`
 5. Change the file `config.sample.py` to `config.py`
 6. Run `python app.py`
+
+
+Features
+ - Email subscribe to get info

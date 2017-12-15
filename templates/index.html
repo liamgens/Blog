@@ -4,10 +4,12 @@
     <title>Blog</title>
 </head>
 <body>
+    {{ action }}<br>
+    <a href="/{{ action }}"><button>{{ action }}</button></a><br>
     Posts
     <ul id="navigation">
     {% for item in navigation %}
-        <li><a href="/posts/{{ item.title }}">{{ item.title }}</a></li>
+        <li><a href="/posts/{{ item.id }}">{{ item.title }}</a></li>
     {% endfor %}
     </ul>
 </body>

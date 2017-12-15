@@ -6,11 +6,16 @@ db = SQLAlchemy()
 
 class User(db.Model):
 
-    __tablename__ = 'user'
+    __tablename__ = 'users'
 
-    username = db.Column(db.String(15), primary_key=True)
+    email = db.Column(db.String(30), primary_key=True)
     password = db.Column(db.String)
     authenticated = db.Column(db.Boolean, default=False)
+
+
+    def __init__(self, email, password):
+        self.email = email
+        self.password = password
 
     def is_active(self):
         """True, as all users are active."""
@@ -18,7 +23,7 @@ class User(db.Model):
 
     def get_id(self):
         """Return the email address to satisfy Flask-Login's requirements."""
-        return self.username
+        return self.email
 
     def is_authenticated(self):
         """Return True if the user is authenticated."""
@@ -32,6 +37,10 @@ class Post(db.Model):
 
     __tablename__ = 'posts'
 
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(30), primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    title = db.Column(db.String(30))
     content = db.Column(db.String)
+
+    def __init__(self, title, content):
+        self.title = title
+        self.content = content
