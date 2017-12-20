@@ -37,7 +37,7 @@ def posts(id):
 
 @app.route('/posts/markdown/<id>')
 def get(id):
-    return send_from_directory(filename="test.md", directory="./posts_markdown/")
+    return send_from_directory(filename="tests.md", directory="./posts_markdown/")
 
 # @app.route('/posts/new', methods=['GET', 'POST'])
 # def new_post():
