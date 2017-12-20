@@ -1,0 +1,76 @@
+html{
+    font-family: helvetica;
+    padding: 30px;
+}
+
+.postPreview {
+  width: 550px;
+  height: 325px;
+  border-radius: 1px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+  border: solid 1px #e8e8e8;
+  padding: 10px;
+  margin: 0 auto 30px auto;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  position: relative;
+}
+
+.postTitle {
+    position: absolute;
+    top: 284px; 
+    left: 10px; 
+    width: 100%; 
+}
+
+h3 span {
+    color: white; 
+    letter-spacing: -1px;  
+    background: rgb(0, 0, 0); /* fallback color */
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px; 
+}
+
+#name{
+    margin: 10px 0 0 0;
+    color: #4a4a4a;
+}
+
+#bio{
+    margin: 7px 0 10px 0;
+    color: #757575;
+
+}
+
+#posts {
+    display: block;
+    margin-left: 230px;
+}
+
+.sidebar {
+    float: left;
+    position: fixed;
+    width: 200px;
+}
+
+#app {
+    padding: 20px;
+    display: block;
+}
+
+#subscribe {
+  width: 200px;
+  height: 30px;
+  border-radius: 1px;
+  background-color: #4a90e2;
+  color: white;
+}
+
+#email {
+  width: 196px;
+  height: 30px;
+  border-radius: 1px;
+  border: solid 1px #d5d5d5;
+  margin-bottom: 5px;
+}

@@ -44,3 +44,10 @@ class Post(db.Model):
     def __init__(self, title, content):
         self.title = title
         self.content = content
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "title": self.title,
+            "content": self.content
+        }
