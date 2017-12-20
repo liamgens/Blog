@@ -17,7 +17,6 @@ class PostPreview extends Component {
     return (
         <div class="postPreview">
             <img src={this.state.image} width="100%" height="100%" onClick={()=>{
-              console.log("Clicked: " + this.state.id);
               this.props.history.push("/posts/" + this.state.id);
             }}/>
             <h3 class="postTitle"><span>{this.state.title}</span></h3>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import Sidebar from './Sidebar.js';
 import Posts from './Posts.js';
 import { Switch, Route } from 'react-router-dom'

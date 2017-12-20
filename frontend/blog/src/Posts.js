@@ -23,7 +23,6 @@ class Posts extends Component {
     var posts = [];
 
     for(var i=0;i<this.state.posts.length;i++){
-      console.log(i);
       posts.push(<PostPreview id={this.state.posts[i].id} title={this.state.posts[i].title} image="https://media.wired.com/photos/5a2eb8b77ddf3c6b8cc4157d/master/w_2264,c_limit/AI_VideoFinal.jpg"> </PostPreview>);
     }
 
