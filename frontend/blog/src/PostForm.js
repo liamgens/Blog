@@ -52,13 +52,17 @@ class PostForm extends Component {
 
         return (
         <div>
-          <form onSubmit={this.handleSubmit}>
-            <input type="text" value={this.state.title} onChange={this.handleTitleChange}/>
-            <textarea type="text" value={this.state.content} onChange={this.handleContentChange} />
-            <input type="submit" value="Submit" />
-          </form>
-          <ReactMarkdown source={m_title}></ReactMarkdown>
-          <ReactMarkdown source={this.state.content}></ReactMarkdown>
+            <div id="edit">
+                <form onSubmit={this.handleSubmit}>
+                    <input type="text" value={this.state.title} onChange={this.handleTitleChange}/><br/>
+                    <textarea type="text" value={this.state.content} onChange={this.handleContentChange} /><br/>
+                    <input type="submit" value="Post" />
+                </form>
+            </div>
+          <div id="preview">
+            <ReactMarkdown source={m_title}></ReactMarkdown>
+            <ReactMarkdown source={this.state.content}></ReactMarkdown>
+          </div>
         </div>
         );
       }
