@@ -6,6 +6,7 @@ from flask_login import LoginManager, login_required, login_user, logout_user, c
 from forms import SignupForm, PostForm
 import markdown
 from passlib.hash import sha256_crypt
+import os
 
 app = Flask(__name__)
 
@@ -24,20 +25,30 @@ with app.app_context():
 # Create the login manager for handling users
 login_manager = LoginManager(app)
 
-@app.route('/posts')
+@app.route('/posts', methods=['GET'])
 def get_posts():
     posts = Post.query.all()
     posts = [i.serialize() for i in posts]
     return jsonify(posts) if posts else jsonify([])
 
-@app.route('/posts/<id>')
+@app.route('/posts/new', methods=['POST'])
+def new_post():
+    data = request.get_json()
+    print(data)
+    post = Post(data.get('title'), data.get('content'))
+    db.session.add(post)
+    db.session.commit()
+    return jsonify(post.id)
+
+@app.route('/posts/<id>', methods=['GET'])
 def posts(id):
     post = Post.query.filter_by(id=id).first()
     return jsonify(post.serialize()) if post else jsonify([])
 
-@app.route('/posts/markdown/<id>')
-def get(id):
-    return send_from_directory(filename="tests.md", directory="./posts_markdown/")
+# @app.route('/posts/<id>', methods=['GET'])
+# def get(id):
+#     return jsonify({"content": "#Heading"})
+    # return send_from_directory(filename="tests.md", directory="./posts_markdown/")
 
 # @app.route('/posts/new', methods=['GET', 'POST'])
 # def new_post():
@@ -58,21 +69,6 @@ def get(id):
 #             return redirect("/posts/%i" % (new_post.id), code=302)
 
 #     return render_template("new_post.html", form=post)
-
-# Basic Flask route
-# @app.route('/')
-# @app.route('/posts')
-# def index():
-#     # action = "login"
-
-#     # if current_user.is_authenticated:
-#     #     action = "logout"
-
-#     # posts = Post.query.all()
-#     x = url_for('static', filename='index.css')
-#     y = url_for('static', filename='main.js')
-
-#     return render_template("index.html", static=x, js=y)
 
 # @app.route('/login', methods=['GET','POST'])
 # def login():
@@ -127,13 +123,13 @@ def get(id):
 
 #     return "Hmmm... something didn't go quite right."
 
-# @login_manager.user_loader
-# def user_loader(user_id):
-#     """Given *user_id*, return the associated User object.
+@login_manager.user_loader
+def user_loader(user_id):
+    """Given *user_id*, return the associated User object.
 
-#     :param unicode user_id: user_id (email) user to retrieve
-#     """
-#     return User.query.get(user_id)
+    :param unicode user_id: user_id (email) user to retrieve
+    """
+    return User.query.get(user_id)
 
 
 # Runs the app (in debug mode)
