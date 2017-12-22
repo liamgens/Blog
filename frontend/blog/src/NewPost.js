@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './sidebar.css'
-const ReactMarkdown = require('react-markdown')
+import './sidebar.css';
+import PostForm from './PostForm.js';
+const ReactMarkdown = require('react-markdown');
 // var md = require('markdown-string')
 
 
@@ -18,9 +19,7 @@ class NewPost extends Component {
 
     return (
         <div id="posts">
-            <form>
-                <input type="text"/>
-            </form>
+            <PostForm/>
         </div> 
     );
   }

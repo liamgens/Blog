@@ -46,6 +46,7 @@ h3 span {
 #posts {
     display: block;
     margin-left: 230px;
+    white-space: pre-line;
 }
 
 .sidebar {
@@ -73,4 +74,13 @@ h3 span {
   border-radius: 1px;
   border: solid 1px #d5d5d5;
   margin-bottom: 5px;
+}
+
+.noPadding {
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    margin: 0;
 }

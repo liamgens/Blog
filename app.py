@@ -34,7 +34,9 @@ def get_posts():
 @app.route('/posts/new', methods=['POST'])
 def new_post():
     data = request.get_json()
-    print(data)
+    print("=======================")
+    print(request)
+    print("=======================")
     post = Post(data.get('title'), data.get('content'))
     db.session.add(post)
     db.session.commit()
