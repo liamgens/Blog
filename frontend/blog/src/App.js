@@ -5,6 +5,8 @@ import { Switch, Route } from 'react-router-dom'
 import PostPreview from './PostPreview';
 import PostView from './PostView';
 import { BrowserRouter } from 'react-router-dom'
+import NewPost from './NewPost.js'
+import NotFound from './NotFound';
 
 class App extends Component {
   render() {
@@ -12,8 +14,12 @@ class App extends Component {
     <BrowserRouter>
       <div>
         <Sidebar></Sidebar>
-          <Route exact path='/' component={Posts}/>
-          <Route path='/posts/:id' component={PostView}/>
+          <Switch>
+            <Route exact path='/' component={Posts}/>
+            <Route path='/posts/new' component={NewPost}/>
+            <Route path='/posts/:id' component={PostView}/>
+            <Route component={NotFound}/>
+          </Switch>
       </div>
     </BrowserRouter>
 

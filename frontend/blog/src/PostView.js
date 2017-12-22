@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './sidebar.css'
 const ReactMarkdown = require('react-markdown')
+// var md = require('markdown-string')
+
 
 
 class PostView extends Component {
@@ -8,7 +10,7 @@ class PostView extends Component {
     super(props);
 
     this.state = {
-        post: []
+        post: [],
     };
 }
 
@@ -26,6 +28,7 @@ class PostView extends Component {
 
     return (
         <div id="posts">
+            <ReactMarkdown source={this.state.post.title}></ReactMarkdown>
             <ReactMarkdown source={this.state.post.content}></ReactMarkdown>
         </div> 
     );
