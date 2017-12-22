@@ -37,7 +37,7 @@ def new_post():
     print("=======================")
     print(request)
     print("=======================")
-    post = Post(data.get('title'), data.get('content'))
+    post = Post(data.get('title'), data.get('content'), data.get('image_url'))
     db.session.add(post)
     db.session.commit()
     return jsonify(post.id)

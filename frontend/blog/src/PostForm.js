@@ -28,7 +28,8 @@ class PostForm extends Component {
     handleSubmit(event){
         var json = {
             title: this.state.title,
-            content: this.state.content
+            content: this.state.content,
+            image_url: "http://i.dailymail.co.uk/i/pix/2017/07/31/20/42DAAD1300000578-4747584-image-a-9_1501530132037.jpg"
         }
 
         const url = "http://localhost:5000/posts/new"

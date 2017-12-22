@@ -40,14 +40,17 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     title = db.Column(db.String(30))
     content = db.Column(db.String)
+    image_url = db.Column(db.String)
 
-    def __init__(self, title, content):
+    def __init__(self, title, content, image_url):
         self.title = title
         self.content = content
+        self.image_url = image_url
 
     def serialize(self):
         return {
             "id": self.id,
             "title": self.title,
-            "content": self.content
+            "content": self.content,
+            "image_url": self.image_url
         }
