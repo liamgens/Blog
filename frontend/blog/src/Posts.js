@@ -23,7 +23,7 @@ class Posts extends Component {
     var posts = [];
 
     for(var i = this.state.posts.length - 1; i >= 0; i--){
-      posts.push(<PostPreview id={this.state.posts[i].id} title={this.state.posts[i].title} image={this.state.posts[i].image_url}> </PostPreview>);
+      posts.push(<PostPreview id={this.state.posts[i].id} title={this.state.posts[i].date_posted} image={this.state.posts[i].image_url}> </PostPreview>);
     }
 
     return (
