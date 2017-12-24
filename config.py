@@ -1,1 +1,1 @@
-SQLALCHEMY_DATABASE_URI = "insert db uri here and rename file to config.py"
+SQLALCHEMY_DATABASE_URI = "sqlite:///database.sqlite"
