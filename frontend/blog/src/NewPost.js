@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './sidebar.css';
 import PostForm from './PostForm.js';
-const ReactMarkdown = require('react-markdown');
 
 
 class NewPost extends Component {

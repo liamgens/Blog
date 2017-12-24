@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Sidebar from './Sidebar.js';
 import Posts from './Posts.js';
 import { Switch, Route } from 'react-router-dom'
-import PostPreview from './PostPreview';
 import PostView from './PostView';
 import { BrowserRouter } from 'react-router-dom'
 import NewPost from './NewPost.js'

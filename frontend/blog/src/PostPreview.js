@@ -9,17 +9,19 @@ class PostPreview extends Component {
     this.state = {
       title: this.props.title,
       image: this.props.image,
-      id: this.props.id
+      id: this.props.id,
+      date: this.props.date
     }
   }
 
   render() {
     return (
-      <div class="postPreview">
-        <img src={this.state.image} width="100%" height="100%" onClick={() => {
+      <div className="postPreview">
+        <img src={this.state.image} width="100%" height="100%" alt={this.state.title} onClick={() => {
           this.props.history.push("/posts/" + this.state.id);
         }} />
-        <h3 class="postTitle"><span>{this.state.title}</span></h3>
+        <h3 className="postTitle"><span>{this.state.title}</span></h3>
+        <h6><span>{this.state.date}</span></h6>
       </div>
     );
   }

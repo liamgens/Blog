@@ -28,8 +28,8 @@ class PostView extends Component {
 
     return (
       <div id="posts">
-        <ReactMarkdown class="noPadding" source={m_title}></ReactMarkdown>
-        <ReactMarkdown class="noPadding" source={this.state.post.content}></ReactMarkdown>
+        <ReactMarkdown className="noPadding" source={m_title}></ReactMarkdown>
+        <ReactMarkdown className="noPadding" source={this.state.post.content}></ReactMarkdown>
       </div>
     );
   }

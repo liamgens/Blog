@@ -4,8 +4,8 @@ import './sidebar.css'
 class Sidebar extends Component {
     render() {
         return (
-            <div class="sidebar">
-                <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/21034177_510494935952755_1707712965450344419_n.jpg?oh=81f8c085ca74560975f9f4a51cdef8de&oe=5AC8CFA7" height="200px" width="200px"></img>
+            <div className="sidebar">
+                <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/21034177_510494935952755_1707712965450344419_n.jpg?oh=81f8c085ca74560975f9f4a51cdef8de&oe=5AC8CFA7" height="200px" width="200px" alt=""></img>
                 <h2 id="name">Liam Gensel</h2>
                 <h5 id="bio">On a mission to "Tinder-ify" the world.</h5>
                 <form>
