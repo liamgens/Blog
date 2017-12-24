@@ -5,6 +5,21 @@ node_modules
 # poi dist
 dist
 
-.venv
+# Virtualenv related
+bin/
+include/
+pip-selfcheck.json
 
-.vscode
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
