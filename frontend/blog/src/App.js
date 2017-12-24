@@ -11,17 +11,17 @@ import NotFound from './NotFound';
 class App extends Component {
   render() {
     return (
-    <BrowserRouter>
-      <div>
-        <Sidebar></Sidebar>
+      <BrowserRouter>
+        <div>
+          <Sidebar></Sidebar>
           <Switch>
-            <Route exact path='/' component={Posts}/>
-            <Route path='/posts/new' component={NewPost}/>
-            <Route path='/posts/:id' component={PostView}/>
-            <Route component={NotFound}/>
+            <Route exact path='/' component={Posts} />
+            <Route path='/posts/new' component={NewPost} />
+            <Route path='/posts/:id' component={PostView} />
+            <Route component={NotFound} />
           </Switch>
-      </div>
-    </BrowserRouter>
+        </div>
+      </BrowserRouter>
 
     );
   }

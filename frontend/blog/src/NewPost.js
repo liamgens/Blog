@@ -3,6 +3,7 @@ import './sidebar.css';
 import PostForm from './PostForm.js';
 const ReactMarkdown = require('react-markdown');
 
+
 class NewPost extends Component {
     constructor(props) {
         super(props);

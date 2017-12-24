@@ -4,7 +4,7 @@ const ReactMarkdown = require('react-markdown');
 
 
 class PostForm extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.state = {
@@ -17,15 +17,15 @@ class PostForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleTitleChange(event){
-        this.setState({title: event.target.value})
+    handleTitleChange(event) {
+        this.setState({ title: event.target.value })
     }
 
-    handleContentChange(event){
-        this.setState({content: event.target.value})
+    handleContentChange(event) {
+        this.setState({ content: event.target.value })
     }
 
-    handleSubmit(event){
+    handleSubmit(event) {
         var json = {
             title: this.state.title,
             content: this.state.content,
@@ -38,11 +38,11 @@ class PostForm extends Component {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-              },
+            },
             'method': 'post',
             'body': JSON.stringify(json)
         })
-        .then(response => console.log(response))
+            .then(response => console.log(response))
 
         event.preventDefault();
     }
@@ -52,21 +52,21 @@ class PostForm extends Component {
         var m_title = "# " + this.state.title;
 
         return (
-        <div>
-            <div id="edit">
-                <form onSubmit={this.handleSubmit}>
-                    <input type="text" value={this.state.title} onChange={this.handleTitleChange}/><br/>
-                    <textarea type="text" value={this.state.content} onChange={this.handleContentChange} /><br/>
-                    <input type="submit" value="Post" />
-                </form>
+            <div>
+                <div id="edit">
+                    <form onSubmit={this.handleSubmit}>
+                        <input type="text" value={this.state.title} onChange={this.handleTitleChange} /><br />
+                        <textarea type="text" value={this.state.content} onChange={this.handleContentChange} /><br />
+                        <input type="submit" value="Post" />
+                    </form>
+                </div>
+                <div id="preview">
+                    <ReactMarkdown source={m_title}></ReactMarkdown>
+                    <ReactMarkdown source={this.state.content}></ReactMarkdown>
+                </div>
             </div>
-          <div id="preview">
-            <ReactMarkdown source={m_title}></ReactMarkdown>
-            <ReactMarkdown source={this.state.content}></ReactMarkdown>
-          </div>
-        </div>
         );
-      }
+    }
 
 }
 

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './sidebar.css'
-import {withRouter} from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class PostPreview extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -12,15 +12,15 @@ class PostPreview extends Component {
       id: this.props.id
     }
   }
-  
+
   render() {
     return (
-        <div class="postPreview">
-            <img src={this.state.image} width="100%" height="100%" onClick={()=>{
-              this.props.history.push("/posts/" + this.state.id);
-            }}/>
-            <h3 class="postTitle"><span>{this.state.title}</span></h3>
-        </div> 
+      <div class="postPreview">
+        <img src={this.state.image} width="100%" height="100%" onClick={() => {
+          this.props.history.push("/posts/" + this.state.id);
+        }} />
+        <h3 class="postTitle"><span>{this.state.title}</span></h3>
+      </div>
     );
   }
 }
