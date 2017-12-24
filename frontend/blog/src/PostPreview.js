@@ -21,7 +21,7 @@ class PostPreview extends Component {
           this.props.history.push("/posts/" + this.state.id);
         }} />
         <h3 className="postTitle"><span>{this.state.title}</span></h3>
-        <h6><span>{this.state.date}</span></h6>
+        <h6 className="postDate"><span>{this.state.date}</span></h6>
       </div>
     );
   }
