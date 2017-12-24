@@ -8,6 +8,7 @@ import markdown
 from passlib.hash import sha256_crypt
 import os
 
+
 app = Flask(__name__)
 
 # Initializes the app to use the database URI
@@ -25,22 +26,22 @@ with app.app_context():
 # Create the login manager for handling users
 login_manager = LoginManager(app)
 
+
 @app.route('/posts', methods=['GET'])
 def get_posts():
     posts = Post.query.all()
     posts = [i.serialize() for i in posts]
     return jsonify(posts) if posts else jsonify([])
 
+
 @app.route('/posts/new', methods=['POST'])
 def new_post():
     data = request.get_json()
-    print("=======================")
-    print(request)
-    print("=======================")
     post = Post(data.get('title'), data.get('content'), data.get('image_url'))
     db.session.add(post)
     db.session.commit()
     return jsonify(post.id)
+
 
 @app.route('/posts/<id>', methods=['GET'])
 def posts(id):
@@ -96,7 +97,6 @@ def posts(id):
 # def logout():
 #     logout_user()
 #     return redirect('/')
-
 
 
 # @app.route('/signup', methods=['GET', 'POST'])

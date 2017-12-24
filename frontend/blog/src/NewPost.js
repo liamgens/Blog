@@ -4,25 +4,23 @@ import PostForm from './PostForm.js';
 const ReactMarkdown = require('react-markdown');
 // var md = require('markdown-string')
 
-
-
 class NewPost extends Component {
-  constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.state = {
-        content:"",
-    };
-}
+        this.state = {
+            content: "",
+        };
+    }
 
-  render() {
+    render() {
 
-    return (
-        <div id="posts">
-            <PostForm/>
-        </div> 
-    );
-  }
+        return (
+            <div id="posts">
+                <PostForm />
+            </div>
+        );
+    }
 }
 
 export default NewPost;
