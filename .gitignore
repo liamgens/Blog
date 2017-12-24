@@ -4,3 +4,7 @@ node_modules
 
 # poi dist
 dist
+
+venv
+
+.vscode
