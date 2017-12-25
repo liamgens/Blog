@@ -11,27 +11,16 @@ class PostForm extends Component {
         this.state = {
             title: '',
             content: '',
+            file: '',
+            image_encoded: ''
         }
 
         this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleContentChange = this.handleContentChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.getBase64 = this.getBase64.bind(this);
-    }
+        this.handleImageChange = this.handleImageChange.bind(this);
 
-    getBase64(file) {
-        var reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = function () {
-            console.log(reader.result);
-        };
-        reader.onerror = function (error) {
-            console.log('Error: ', error);
-        };
     }
-
-    //  var file = document.querySelector('#files > input[type="file"]').files[0];
-    //  getBase64(file); // prints the base64 string
 
     handleTitleChange(event) {
         this.setState({ title: event.target.value })
@@ -41,16 +30,30 @@ class PostForm extends Component {
         this.setState({ content: event.target.value })
     }
 
+    handleImageChange(event) {
+        let reader = new FileReader();
+        let file = event.target.files[0];
+
+        reader.onloadend = (readerEvt) => {
+            var binaryString = readerEvt.target.result;
+
+            this.setState({
+                file: file,
+                image_encoded: binaryString,
+            });
+        }
+
+        reader.readAsDataURL(file)
+    }
+
     handleSubmit(event) {
         var json = {
             title: this.state.title,
             content: this.state.content,
-            image_url: "http://i.dailymail.co.uk/i/pix/2017/07/31/20/42DAAD1300000578-4747584-image-a-9_1501530132037.jpg"
+            image_url: this.state.image_encoded
         }
 
         const url = "http://localhost:5000/posts/new";
-
-        var file = this.getBase64();
 
         fetch(url, {
             headers: {
@@ -75,14 +78,13 @@ class PostForm extends Component {
                     <form onSubmit={this.handleSubmit}>
                         <input type="text" value={this.state.title} onChange={this.handleTitleChange} /><br />
                         <textarea type="text" value={this.state.content} onChange={this.handleContentChange} /><br />
-                        <input type="file" />
+                        <input type="file" onChange={this.handleImageChange} />
                         <input type="submit" value="Post" />
                     </form>
                 </div>
                 <div id="preview">
-                    {/* <ReactMarkdown source={m_title}></ReactMarkdown>
-                    <ReactMarkdown source={this.state.content}></ReactMarkdown> */}
-                    <ImageUpload />
+                    <ReactMarkdown source={m_title}></ReactMarkdown>
+                    <ReactMarkdown source={this.state.content}></ReactMarkdown>
                 </div>
             </div>
         );
