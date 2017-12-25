@@ -79,10 +79,11 @@ class PostForm extends Component {
                         <input type="text" value={this.state.title} onChange={this.handleTitleChange} /><br />
                         <textarea type="text" value={this.state.content} onChange={this.handleContentChange} /><br />
                         <input type="file" onChange={this.handleImageChange} />
+                        <img src={this.state.image_encoded} height="100%" width="100%" />
                         <input type="submit" value="Post" />
                     </form>
                 </div>
-                <div id="preview">
+                <div id="preview" className="wrap" >
                     <ReactMarkdown source={m_title}></ReactMarkdown>
                     <ReactMarkdown source={this.state.content}></ReactMarkdown>
                 </div>

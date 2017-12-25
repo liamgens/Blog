@@ -12,7 +12,6 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <Sidebar></Sidebar>
           <Switch>
             <Route exact path='/' component={Posts} />
             <Route path='/posts/new' component={NewPost} />

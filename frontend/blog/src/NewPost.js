@@ -15,7 +15,7 @@ class NewPost extends Component {
     render() {
 
         return (
-            <div id="posts">
+            <div>
                 <PostForm />
             </div>
         );

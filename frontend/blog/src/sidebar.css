@@ -4,6 +4,10 @@ html{
     background-color: #f8f7f7;
 }
 
+.wrap {
+    white-space: pre-wrap; 
+}
+
 .postPreview {
   width: 550px;
   height: 325px;

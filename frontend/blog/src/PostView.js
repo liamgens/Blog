@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './sidebar.css'
+import Sidebar from './Sidebar';
 const ReactMarkdown = require('react-markdown')
 
 
@@ -27,10 +28,14 @@ class PostView extends Component {
     var m_title = "# " + this.state.post.title;
 
     return (
-      <div id="posts">
-        <ReactMarkdown className="noPadding" source={m_title}></ReactMarkdown>
-        <ReactMarkdown className="noPadding" source={this.state.post.content}></ReactMarkdown>
+      <div>
+        <Sidebar />
+        <div id="posts">
+          <ReactMarkdown className="noPadding" source={m_title}></ReactMarkdown>
+          <ReactMarkdown className="noPadding" source={this.state.post.content}></ReactMarkdown>
+        </div>
       </div>
+
     );
   }
 }

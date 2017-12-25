@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PostPreview from './PostPreview.js';
 import './sidebar.css';
+import Sidebar from './Sidebar';
 
 
 class Posts extends Component {
@@ -28,8 +29,11 @@ class Posts extends Component {
     }
 
     return (
-      <div id="posts">
-        {posts}
+      <div>
+        <Sidebar />
+        <div id="posts">
+          {posts}
+        </div>
       </div>
     );
   }
