@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './sidebar.css'
 import ImageUpload from './ImageUpload';
+import TextInput from './TextInput';
+import TextArea from './TextArea';
+import Button from './Button';
+import FileInput from './FileInput';
 const ReactMarkdown = require('react-markdown');
 
 
@@ -76,11 +80,13 @@ class PostForm extends Component {
             <div>
                 <div id="edit">
                     <form onSubmit={this.handleSubmit}>
-                        <input type="text" value={this.state.title} onChange={this.handleTitleChange} /><br />
-                        <textarea type="text" value={this.state.content} onChange={this.handleContentChange} /><br />
-                        <input type="file" onChange={this.handleImageChange} />
+                        <TextInput width="100%" height="auto" type="text" value={this.state.title} onChange={this.handleTitleChange} /><br />
+                        <TextArea width="100%" type="text" value={this.state.content} onChange={this.handleContentChange} /><br />
+                        <div>
+                            <FileInput action={this.handleImageChange} />
+                            <Button width="115px" type="submit" value="Post">Post</Button>
+                        </div>
                         <img src={this.state.image_encoded} height="100%" width="100%" />
-                        <input type="submit" value="Post" />
                     </form>
                 </div>
                 <div id="preview" className="wrap" >
