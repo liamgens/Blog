@@ -32,7 +32,7 @@ class PostView extends Component {
       <div>
         <div id="postView">
           <div style={center}>
-            <ReactMarkdown className="noPadding" source={m_title}></ReactMarkdown>
+            <ReactMarkdown className="noPaddingg" source={m_title}></ReactMarkdown>
           </div>
           <ReactMarkdown className="noPadding" source={this.state.post.content}></ReactMarkdown>
         </div>
