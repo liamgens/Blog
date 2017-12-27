@@ -10,8 +10,49 @@ class PostPreview extends Component {
       title: this.props.title,
       image: this.props.image,
       id: this.props.id,
-      date: this.props.date
+      date: this.fixDate()
     }
+  }
+
+  fixDate() {
+    var date = this.props.date.split(' ');
+    switch (date[2]) {
+      case 'Jan':
+        date[2] = "January";
+        break;
+      case 'Feb':
+        date[2] = "February";
+        break;
+      case 'Apr':
+        date[2] = "April";
+        break;
+      case 'May':
+        date[2] = "May";
+        break;
+      case 'Jun':
+        date[2] = "June";
+        break;
+      case 'Jul':
+        date[2] = "July";
+        break;
+      case 'Aug':
+        date[2] = "August";
+        break;
+      case 'Sep':
+        date[2] = "September";
+        break;
+      case 'Oct':
+        date[2] = "October";
+        break;
+      case 'Nov':
+        date[2] = "November";
+        break;
+      case 'Dec':
+        date[2] = "December";
+        break;
+    }
+    date = date[2] + ' ' + date[1] + ', ' + date[3];
+    return date;
   }
 
   render() {
