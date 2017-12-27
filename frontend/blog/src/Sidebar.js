@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import './sidebar.css'
+import './sidebar.css';
+import Button from './Button.js';
+import Link from './Link.js';
+const a_style = {
+    textDecoration: 'none',
+    color: 'black',
+    fontFamily: "helvetica"
+}
 
 class Sidebar extends Component {
     render() {
@@ -10,10 +17,10 @@ class Sidebar extends Component {
                 <h5 id="bio">On a mission to "Tinder-ify" the world.</h5>
                 <form>
                     <input type="text" name="email" id="email" placeholder="peter@example.com" />
-                    <input type="submit" value="Subscribe" id="subscribe" />
+                    <Button primary>Subscribe</Button>
                 </form>
-                <h5>liamgens</h5>
-                <h5>liamgens</h5>
+                <Link title="liamgens" icon="github" link="https://www.github.com/liamgens" />
+                <Link title="liamgens" icon="facebook-official" link="https://www.github.com/liamgens" />
             </div>
         );
     }

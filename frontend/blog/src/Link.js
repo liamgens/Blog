@@ -5,6 +5,12 @@ import 'font-awesome/css/font-awesome.min.css';
 const a_style = {
     textDecoration: 'none',
     color: 'black',
+    fontFamily: "helvetica",
+    fontSize: '16px'
+}
+
+const div_style = {
+    marginTop: "10px"
 }
 
 class Link extends Component {
@@ -18,8 +24,8 @@ class Link extends Component {
 
     render() {
         return (
-            <div>
-                <a href={this.props.link} style={a_style}><i class={this.state.icon} aria-hidden="true"> {this.props.title}</i></a>
+            <div style={div_style}>
+                <a href={this.props.link} style={a_style}><i class={this.state.icon} aria-hidden="true"> <span style={a_style}>{this.props.title}</span></i></a>
             </div>
         );
     }

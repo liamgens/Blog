@@ -6,13 +6,11 @@ const input_style = {
     height: '0.1px',
     opacity: 0,
     overflow: 'hidden',
-    // position: 'absolute',
     zIndex: -1
 }
 
 const label_style = {
     color: '#4a90e2',
-    // display: 'inline-block',
     cursor: 'pointer',
     fontSize: '12px'
 }
@@ -28,6 +26,7 @@ const div_style = {
     border: '2px solid #4a90e2',
     display: 'inline-block',
 }
+
 class FileInput extends Component {
     render() {
         return (
