@@ -15,13 +15,17 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <TopBar class="topBar"></TopBar>
-          <Switch>
-            <Route exact path='/' component={Posts} />
-            <Route path='/posts/new' component={NewPost} />
-            <Route path='/posts/:id' component={PostView} />
-            <Route component={NotFound} />
-          </Switch>
+          <div className="topBar">
+            <TopBar></TopBar>
+          </div>
+          <div>
+            <Switch>
+              <Route exact path='/' component={Posts} />
+              <Route path='/posts/new' component={NewPost} />
+              <Route path='/posts/:id' component={PostView} />
+              <Route component={NotFound} />
+            </Switch>
+          </div>
         </div>
       </BrowserRouter>
 

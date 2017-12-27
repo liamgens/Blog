@@ -6,7 +6,7 @@ const div_style = {
     color: 'white',
     fontFamily: 'helvetica',
     padding: '10px',
-    fontSize: '36px'
+    fontSize: '36px',
 }
 
 const a_style = {

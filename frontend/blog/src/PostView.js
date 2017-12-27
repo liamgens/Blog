@@ -29,7 +29,6 @@ class PostView extends Component {
 
     return (
       <div>
-        <Sidebar />
         <div id="posts">
           <ReactMarkdown className="noPadding" source={m_title}></ReactMarkdown>
           <ReactMarkdown className="noPadding" source={this.state.post.content}></ReactMarkdown>

@@ -68,22 +68,17 @@ h6 span {
 }
 
 .topBar {
-    position: 'absolute';
+    position: fixed;
     top: 0;
-    flex: 1;
-    align-self: 'stretch';
-    right: 0;
     left: 0;
-    background-color: '#4a90e2';
-    color: 'white';
-    font-family: 'helvetica';
-    padding: '10px';
-    font-size: '36px'
+    z-index: 999;
+    width: 100%;
 }
 
 #posts {
     display: block;
     white-space: pre-line;
+    margin-top: 86.5px;
 }
 
 .sidebar {
