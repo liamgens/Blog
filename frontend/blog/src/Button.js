@@ -10,7 +10,6 @@ const Button = styled.button`
   height: ${props => props.height ? props.height : "30px"};
   font-family: helvetica;
   font-size: 12px;
-  display: inline-block;
 
   &:active {
     position: relative;

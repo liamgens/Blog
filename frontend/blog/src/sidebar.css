@@ -110,12 +110,12 @@ h1 {
 }
 
 #edit{
-    /* float: left; */
-    /* width: 38%; */
+    float: left;
+    width: 38%;
 }
 
 #preview{
-    /* float: right; */
+    float: right;
     width: 60%;
 }
 

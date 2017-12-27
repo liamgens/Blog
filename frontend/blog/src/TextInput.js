@@ -11,6 +11,10 @@ const TextInput = styled.input`
     font-family: helvetica;
     font-size: 12px;
 
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+
     &:hover{
         border: 2px solid #77abe9;
     }

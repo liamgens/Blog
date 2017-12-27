@@ -7,6 +7,13 @@ import Button from './Button';
 import FileInput from './FileInput';
 const ReactMarkdown = require('react-markdown');
 
+const submit_style = {
+    float: 'right',
+}
+
+const component_style = {
+    marginBottom: "5px"
+}
 
 class PostForm extends Component {
     constructor(props) {
@@ -80,11 +87,11 @@ class PostForm extends Component {
             <div>
                 <div id="edit">
                     <form onSubmit={this.handleSubmit}>
-                        <TextInput width="100%" height="auto" type="text" value={this.state.title} onChange={this.handleTitleChange} /><br />
-                        <TextArea width="100%" type="text" value={this.state.content} onChange={this.handleContentChange} /><br />
-                        <div>
-                            <FileInput action={this.handleImageChange} />
-                            <Button width="115px" type="submit" value="Post">Post</Button>
+                        <TextInput style={component_style} width="100%" height="auto" type="text" value={this.state.title} onChange={this.handleTitleChange} placeholder="Title" /><br />
+                        <TextArea style={component_style} height="350px" width="100%" type="text" value={this.state.content} onChange={this.handleContentChange} placeholder="Content" /><br />
+                        <div style={component_style}>
+                            <FileInput action={this.handleImageChange}></FileInput>
+                            <Button style={submit_style} width="115px" type="submit" value="Post" primary>Post</Button>
                         </div>
                         <img src={this.state.image_encoded} height="100%" width="100%" />
                     </form>
@@ -93,7 +100,7 @@ class PostForm extends Component {
                     <ReactMarkdown source={m_title}></ReactMarkdown>
                     <ReactMarkdown source={this.state.content}></ReactMarkdown>
                 </div>
-            </div>
+            </div >
         );
     }
 
