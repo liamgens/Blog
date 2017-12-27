@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import './sidebar.css'
 const ReactMarkdown = require('react-markdown')
 
-
+const center = {
+  textAlign: "center"
+}
 
 class PostView extends Component {
   constructor(props) {
@@ -28,8 +30,10 @@ class PostView extends Component {
 
     return (
       <div>
-        <div id="posts">
-          <ReactMarkdown className="noPadding" source={m_title}></ReactMarkdown>
+        <div id="postView">
+          <div style={center}>
+            <ReactMarkdown className="noPadding" source={m_title}></ReactMarkdown>
+          </div>
           <ReactMarkdown className="noPadding" source={this.state.post.content}></ReactMarkdown>
         </div>
       </div>

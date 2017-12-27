@@ -45,7 +45,10 @@ h3 span {
     letter-spacing: -1px;  
     background: rgb(0, 0, 0); /* fallback color */
     background: rgba(0, 0, 0, 0.7);
-    padding: 10px; 
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 h6 span {
@@ -54,6 +57,9 @@ h6 span {
     background: rgb(0, 0, 0); /* fallback color */
     background: rgba(0, 0, 0, 0.7);
     padding: 10px; 
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #name{
@@ -80,6 +86,19 @@ h6 span {
     display: block;
     white-space: pre-line;
     margin-top: 86.5px;
+}
+
+#newPost{
+    display: block;
+    white-space: pre-line;
+    margin-top: 86.5px;
+    margin: 86.5px 20px 20px 20px;
+}
+
+#postView {
+    display: block;
+    white-space: pre-line;
+    margin: 86.5px 50px 50px 50px;
 }
 
 .sidebar {
