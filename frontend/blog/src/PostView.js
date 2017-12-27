@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './sidebar.css'
-import Sidebar from './Sidebar';
 const ReactMarkdown = require('react-markdown')
 
 

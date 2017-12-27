@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './sidebar.css';
+import 'font-awesome/css/font-awesome.min.css';
 
 const div_style = {
     backgroundColor: '#4a90e2',
@@ -29,7 +30,7 @@ class TopBar extends Component {
     render() {
         return (
             <div style={div_style}>
-                <span style={span_style_2}>Liam Gensel</span>
+                <a href="/" style={a_style}><span style={span_style_2}>Liam Gensel</span></a>
                 <span style={span_style_2}></span>
                 <span style={span_style_1}>
                     <a style={a_style} href="https://www.github.com/liamgens"><i class="fa fa-lg fa-github" aria-hidden="true"></i></a>

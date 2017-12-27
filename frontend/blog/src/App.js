@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Sidebar from './Sidebar.js';
 import Posts from './Posts.js';
 import { Switch, Route } from 'react-router-dom'
 import PostView from './PostView';
