@@ -30,7 +30,6 @@ class Posts extends Component {
 
     return (
       <div>
-        <Sidebar />
         <div id="posts">
           {posts}
         </div>
