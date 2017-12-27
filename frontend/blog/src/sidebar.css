@@ -73,6 +73,7 @@ h6 span {
     left: 0;
     z-index: 999;
     width: 100%;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 #posts {
