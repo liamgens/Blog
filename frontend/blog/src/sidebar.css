@@ -31,6 +31,7 @@ html{
     color: white;
     margin: 6px;
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
     -webkit-background-clip: text;
        -moz-background-clip: text;
             background-clip: text;
@@ -103,20 +104,20 @@ h6 span {
 #posts {
     display: block;
     white-space: pre-line;
-    margin-top: 86.5px;
+    margin-top: 78.5px;
 }
 
 #newPost{
     display: block;
     white-space: pre-line;
     margin-top: 86.5px;
-    margin: 86.5px 20px 20px 20px;
+    margin: 78.5px 20px 20px 20px;
 }
 
 #postView {
     display: block;
     white-space: pre-line;
-    margin: 86.5px 50px 50px 50px;
+    margin: 78.5px 25% 150px 25%;
 }
 
 .sidebar {
