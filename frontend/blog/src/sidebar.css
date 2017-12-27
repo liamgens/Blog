@@ -24,6 +24,7 @@ html{
   text-overflow: ellipsis;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
 }
 
 .postTitle {
