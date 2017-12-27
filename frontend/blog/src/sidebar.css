@@ -26,6 +26,24 @@ html{
   cursor: pointer;
 }
 
+.links{
+    text-decoration: none;
+    color: white;
+    margin: 6px;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+    -webkit-background-clip: text;
+       -moz-background-clip: text;
+            background-clip: text;
+}
+
+.links:hover{
+    color: rgb(236, 236, 236);
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+    -webkit-background-clip: text;
+       -moz-background-clip: text;
+            background-clip: text;
+}
+
 .postTitle {
     position: absolute;
     top: 284px; 

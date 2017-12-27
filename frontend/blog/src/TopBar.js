@@ -10,12 +10,6 @@ const div_style = {
     fontSize: '36px',
 }
 
-const a_style = {
-    textDecoration: 'none',
-    color: 'white',
-    margin: '6px'
-}
-
 const span_style_1 = {
     float: 'right',
     width: '50%',
@@ -30,11 +24,11 @@ class TopBar extends Component {
     render() {
         return (
             <div style={div_style}>
-                <a href="/" style={a_style}><span style={span_style_2}>Liam Gensel</span></a>
+                <a href="/" className="links"><span style={span_style_2}>Liam Gensel</span></a>
                 <span style={span_style_1}>
-                    <a style={a_style} href="https://www.github.com/liamgens"><i class="fa fa-lg fa-github" aria-hidden="true"></i></a>
-                    <a style={a_style} href="https://www.facebook.com/liamgens"><i class="fa fa-lg fa-facebook-official" aria-hidden="true"></i></a>
-                    <a style={a_style} href="https://www.twitter.com/liamgens"><i class="fa fa-lg fa-twitter" aria-hidden="true"></i></a>
+                    <a className="links" href="https://www.github.com/liamgens"><i class="fa fa-lg fa-github" aria-hidden="true"></i></a>
+                    <a className="links" href="https://www.facebook.com/liamgens"><i class="fa fa-lg fa-facebook-official" aria-hidden="true"></i></a>
+                    <a className="links" href="https://www.twitter.com/liamgens"><i class="fa fa-lg fa-twitter" aria-hidden="true"></i></a>
                 </span>
             </div>
         );
