@@ -11,7 +11,8 @@ class PostView extends Component {
     super(props);
 
     this.state = {
-      post: [],
+      content: '',
+      title: ''
     };
   }
 
@@ -21,20 +22,20 @@ class PostView extends Component {
 
     fetch(url)
       .then(response => response.json())
-      .then(data => this.setState({ post: data }));
+      .then(data => this.setState({ content: data.content, title: "# " + data.title }));
   }
 
   render() {
 
-    var m_title = "# " + this.state.post.title;
+    // var m_title = "# " + this.state.post.title;
 
     return (
       <div>
         <div id="postView">
           <div style={center}>
-            <ReactMarkdown className="noPaddingg" source={m_title}></ReactMarkdown>
+            <ReactMarkdown className="noPaddingg" source={this.state.title}></ReactMarkdown>
           </div>
-          <ReactMarkdown className="noPadding" source={this.state.post.content}></ReactMarkdown>
+          <ReactMarkdown className="noPadding" source={this.state.content}></ReactMarkdown>
         </div>
       </div>
 
