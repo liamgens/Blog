@@ -1,9 +1,12 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from config import SQLALCHEMY_DATABASE_URI
 from models import db, Post
+from flask_httpauth import HTTPBasicAuth
 
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="./frontend/blog/public/")
+
+auth = HTTPBasicAuth()
 
 # Initializes the app to use the database URI
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
@@ -23,7 +26,7 @@ def get_posts():
     return jsonify(posts) if posts else jsonify([])
 
 
-@app.route('/admin', methods=['POST'])
+@app.route('/posts/new', methods=['POST'])
 def new_post():
     data = request.get_json()
     post = Post(data.get('title'), data.get('content'), data.get('image_url'))
@@ -36,6 +39,11 @@ def new_post():
 def posts(id):
     post = Post.query.filter_by(id=id).first()
     return jsonify(post.serialize()) if post else jsonify([])
+
+
+@app.route('/test')
+def test():
+    return render_template("index.html")
 
 
 # Runs the app (in debug mode)
