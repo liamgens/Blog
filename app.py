@@ -23,7 +23,7 @@ def get_posts():
     return jsonify(posts) if posts else jsonify([])
 
 
-@app.route('/posts/new', methods=['POST'])
+@app.route('/admin', methods=['POST'])
 def new_post():
     data = request.get_json()
     post = Post(data.get('title'), data.get('content'), data.get('image_url'))
