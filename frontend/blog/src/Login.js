@@ -11,33 +11,45 @@ const component_style = {
     marginBottom: "5px"
 }
 
+const fakeAuth = {
+    isAuthenticated: false,
+    authenticate(cb) {
+        this.isAuthenticated = true
+        setTimeout(cb, 100) // fake async
+    },
+    signout(cb) {
+        this.isAuthenticated = false
+        setTimeout(cb, 100)
+    }
+}
+
 class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            redirectToReferrer: false
         }
 
-        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
+        this.login = this.login.bind(this);
+
     }
 
-    handleSubmit(event) {
-        var json = {
-            username: this.state.username,
-            password: this.state.password
-        };
-
-        console.log(json);
-
+    login(event) {
+        fakeAuth.authenticate(() => {
+            this.setState({ redirectToReferrer: true })
+        })
 
         event.preventDefault();
+
     }
 
     handleUsernameChange(event) {
         this.setState({ username: event.target.value });
+        console.log(this.state.redirectToReferrer)
     }
 
     handlePasswordChange(event) {
@@ -47,7 +59,7 @@ class Login extends Component {
     render() {
         return (
             <div style={div}>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.login}>
                     <TextInput style={component_style} width="200px" height="auto" type="text" value={this.state.username} onChange={this.handleUsernameChange} placeholder="Username" /><br />
                     <TextInput style={component_style} width="200px" height="auto" type="password" value={this.state.password} onChange={this.handlePasswordChange} placeholder="Password" /><br />
                     <Button type="submit" value="login" width="200px" primary>Login</Button>
