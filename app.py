@@ -4,7 +4,7 @@ from models import db, Post
 from flask_httpauth import HTTPBasicAuth
 
 
-app = Flask(__name__, template_folder="./frontend/blog/public/")
+app = Flask(__name__)
 
 auth = HTTPBasicAuth()
 
@@ -39,11 +39,6 @@ def new_post():
 def posts(id):
     post = Post.query.filter_by(id=id).first()
     return jsonify(post.serialize()) if post else jsonify([])
-
-
-@app.route('/test')
-def test():
-    return render_template("index.html")
 
 
 # Runs the app (in debug mode)
