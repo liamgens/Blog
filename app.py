@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request, render_template
 from config import SQLALCHEMY_DATABASE_URI
-from models import db, Post
+from models import db, Post, User
 from flask_httpauth import HTTPBasicAuth
 
 
@@ -39,6 +39,27 @@ def new_post():
 def posts(id):
     post = Post.query.filter_by(id=id).first()
     return jsonify(post.serialize()) if post else jsonify([])
+
+
+@app.route('/create', methods=['POST'])
+def create_user():
+    data = request.get_json()
+    user = User()
+    user.username = data['username']
+    user.hash_password(data['password'])
+    db.session.add(user)
+    db.session.commit()
+    return str('done')
+
+
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    user = User.query.filter_by(username=data['username']).first()
+    authenticated = False
+    if user and user.verify_password(data['password']):
+        authenticated = True
+    return jsonify({'authenticated': authenticated})
 
 
 # Runs the app (in debug mode)

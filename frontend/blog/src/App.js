@@ -9,32 +9,41 @@ import TopBar from './TopBar';
 import Login from './Login';
 import './sidebar.css';
 
-const fakeAuth = {
-  isAuthenticated: false,
-  authenticate(cb) {
-    this.isAuthenticated = true
-    setTimeout(cb, 100) // fake async
-  },
-  signout(cb) {
-    this.isAuthenticated = false
-    setTimeout(cb, 100)
-  }
-}
 
-const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route {...rest} render={props => (
-    fakeAuth.isAuthenticated ? (
-      <Component {...props} />
-    ) : (
-        <Redirect to={{
-          pathname: '/login',
-          state: { from: props.location }
-        }} />
-      )
-  )} />
-)
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isAuthenticated: false
+    }
+    this.getLogin = this.getLogin.bind(this);
+  }
+
+  // TODO: Add in the request and pass the true false value
+  getLogin(user, pass) {
+    var json = {
+      username: this.state.username,
+      password: this.state.password,
+    }
+
+    const url = "http://localhost:5000/posts/new";
+
+    fetch(url, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      'method': 'post',
+      'body': JSON.stringify(json)
+    })
+      .then(response => console.log(response))
+    console.log(user, pass)
+    if (user == "test" && pass == "test") {
+      this.setState({ isAuthenticated: !this.state.isAuthenticated });
+    }
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -45,8 +54,12 @@ class App extends Component {
           <div>
             <Switch>
               <Route exact path='/' component={Posts} />
-              <PrivateRoute path='/admin' component={NewPost} />
-              <Route path="/login" component={Login} />
+              <Route path='/admin' render={() =>
+                !this.state.isAuthenticated ?
+                  <Login callback={this.getLogin} /> :
+                  <NewPost />
+              } />
+              {/* <Route path="/login" component={Login} /> */}
               <Route path='/posts/:id' component={PostView} />
               <Route component={NotFound} />
             </Switch>

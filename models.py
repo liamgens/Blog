@@ -9,15 +9,16 @@ db = SQLAlchemy()
 
 class User(db.Model):
 
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    username = db.Column(db.String)
+    __tablename__ = 'users'
+
+    username = db.Column(db.String, primary_key=True)
     password = db.Column(db.String)
 
     def hash_password(self, password):
-        self.password_hash = pwd_context.encrypt(password)
+        self.password = pwd_context.encrypt(password)
 
     def verify_password(self, password):
-        return pwd_context.verify(password, self.password_hash)
+        return pwd_context.verify(password, self.password)
 
 
 class Post(db.Model):
