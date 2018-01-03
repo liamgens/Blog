@@ -57,8 +57,11 @@ def login():
     data = request.get_json()
     user = User.query.filter_by(username=data['username']).first()
     authenticated = False
-    if user and user.verify_password(data['password']):
-        authenticated = True
+    try:
+        if user and user.verify_password(data['password']):
+            authenticated = True
+    except Exception as e:
+        print(e)
     return jsonify({'authenticated': authenticated})
 
 

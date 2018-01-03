@@ -23,11 +23,11 @@ class App extends Component {
   // TODO: Add in the request and pass the true false value
   getLogin(user, pass) {
     var json = {
-      username: this.state.username,
-      password: this.state.password,
+      username: user,
+      password: pass,
     }
 
-    const url = "http://localhost:5000/posts/new";
+    const url = "http://localhost:5000/login";
 
     fetch(url, {
       headers: {
@@ -37,8 +37,9 @@ class App extends Component {
       'method': 'post',
       'body': JSON.stringify(json)
     })
-      .then(response => console.log(response))
-    console.log(user, pass)
+      .then(data => data.json())
+      .then(json => console.log(json))
+
     if (user == "test" && pass == "test") {
       this.setState({ isAuthenticated: !this.state.isAuthenticated });
     }

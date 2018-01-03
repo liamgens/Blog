@@ -11,18 +11,6 @@ const component_style = {
     marginBottom: "5px"
 }
 
-const fakeAuth = {
-    isAuthenticated: false,
-    authenticate(cb) {
-        this.isAuthenticated = true
-        setTimeout(cb, 100) // fake async
-    },
-    signout(cb) {
-        this.isAuthenticated = false
-        setTimeout(cb, 100)
-    }
-}
-
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -55,11 +43,9 @@ class Login extends Component {
     render() {
         return (
             <div style={div}>
-                {/* <form > */}
                 <TextInput style={component_style} width="200px" height="auto" type="text" value={this.state.username} onChange={this.handleUsernameChange} placeholder="Username" /><br />
                 <TextInput style={component_style} width="200px" height="auto" type="password" value={this.state.password} onChange={this.handlePasswordChange} placeholder="Password" /><br />
                 <Button type="submit" value="login" width="200px" primary onClick={this.test}>Login</Button>
-                {/* </form> */}
             </div>
         )
     }
