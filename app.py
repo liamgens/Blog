@@ -1,5 +1,5 @@
-from flask import Flask, jsonify, request, render_template
-from config import SQLALCHEMY_DATABASE_URI
+from flask import Flask, jsonify, request
+from config import SQLALCHEMY_DATABASE_URI, TOKEN
 from models import db, Post, User
 from flask_httpauth import HTTPBasicAuth
 
@@ -56,13 +56,13 @@ def create_user():
 def login():
     data = request.get_json()
     user = User.query.filter_by(username=data['username']).first()
-    authenticated = False
+    token = None
     try:
         if user and user.verify_password(data['password']):
-            authenticated = True
+            token = TOKEN
     except Exception as e:
         print(e)
-    return jsonify({'authenticated': authenticated})
+    return jsonify({'token': token})
 
 
 # Runs the app (in debug mode)

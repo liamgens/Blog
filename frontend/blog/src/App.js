@@ -15,12 +15,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isAuthenticated: false
+      token: null
     }
     this.getLogin = this.getLogin.bind(this);
   }
 
-  // TODO: Add in the request and pass the true false value
   getLogin(user, pass) {
     var json = {
       username: user,
@@ -38,11 +37,15 @@ class App extends Component {
       'body': JSON.stringify(json)
     })
       .then(data => data.json())
-      .then(json => console.log(json))
+      .then(json => {
+        var token = json['token'];
 
-    if (user == "test" && pass == "test") {
-      this.setState({ isAuthenticated: !this.state.isAuthenticated });
-    }
+        if (token != null) {
+          this.setState({
+            token: token
+          })
+        }
+      })
   }
 
   render() {
@@ -56,11 +59,10 @@ class App extends Component {
             <Switch>
               <Route exact path='/' component={Posts} />
               <Route path='/admin' render={() =>
-                !this.state.isAuthenticated ?
+                this.state.token == null ?
                   <Login callback={this.getLogin} /> :
-                  <NewPost />
+                  <NewPost token={this.state.token} />
               } />
-              {/* <Route path="/login" component={Login} /> */}
               <Route path='/posts/:id' component={PostView} />
               <Route component={NotFound} />
             </Switch>
