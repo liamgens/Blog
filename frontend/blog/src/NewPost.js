@@ -16,7 +16,7 @@ class NewPost extends Component {
 
         return (
             <div id="newPost">
-                <PostForm />
+                <PostForm token={this.props.token} />
             </div>
         );
     }

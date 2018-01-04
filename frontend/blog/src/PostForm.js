@@ -61,7 +61,8 @@ class PostForm extends Component {
         var json = {
             title: this.state.title,
             content: this.state.content,
-            image_url: this.state.image_encoded
+            image_url: this.state.image_encoded,
+            token: this.props.token
         }
 
         const url = "http://localhost:5000/posts/new";

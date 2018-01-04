@@ -29,10 +29,17 @@ def get_posts():
 @app.route('/posts/new', methods=['POST'])
 def new_post():
     data = request.get_json()
-    post = Post(data.get('title'), data.get('content'), data.get('image_url'))
-    db.session.add(post)
-    db.session.commit()
-    return jsonify(post.id)
+    token = data.get('token')
+
+    if verify_token(token):
+        post = Post(data.get('title'), data.get(
+            'content'), data.get('image_url'))
+        db.session.add(post)
+        db.session.commit()
+
+        return jsonify(post.id)
+
+    return jsonify(None)
 
 
 @app.route('/posts/<id>', methods=['GET'])
@@ -63,6 +70,10 @@ def login():
     except Exception as e:
         print(e)
     return jsonify({'token': token})
+
+
+def verify_token(token):
+    return token == TOKEN
 
 
 # Runs the app (in debug mode)
