@@ -8,6 +8,9 @@ db = SQLAlchemy()
 
 
 class User(db.Model):
+    """
+    The database model for a user.
+    """
 
     __tablename__ = 'users'
 
@@ -22,6 +25,9 @@ class User(db.Model):
 
 
 class Post(db.Model):
+    """
+    The database model for a post.
+    """
 
     __tablename__ = 'posts'
 

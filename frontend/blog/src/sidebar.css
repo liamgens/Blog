@@ -65,7 +65,7 @@ html {
 
 h3 span {
     color: white; 
-    letter-spacing: -1px;  
+    /* letter-spacing: -1px;   */
     background: rgb(0, 0, 0); /* fallback color */
     background: rgba(0, 0, 0, 0.7);
     padding: 10px;
@@ -74,7 +74,7 @@ h3 span {
 
 h6 span {
     color: white; 
-    letter-spacing: -1px;  
+    /* letter-spacing: -1px;   */
     background: rgb(0, 0, 0); /* fallback color */
     background: rgba(0, 0, 0, 0.7);
     padding: 10px; 

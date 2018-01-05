@@ -1,12 +1,8 @@
 from flask import Flask, jsonify, request
 from config import SQLALCHEMY_DATABASE_URI, TOKEN
 from models import db, Post, User
-from flask_httpauth import HTTPBasicAuth
-
 
 app = Flask(__name__)
-
-auth = HTTPBasicAuth()
 
 # Initializes the app to use the database URI
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
@@ -21,6 +17,9 @@ with app.app_context():
 
 @app.route('/posts', methods=['GET'])
 def get_posts():
+    """
+    API endpoint for retreiving all the posts in the database.
+    """
     posts = Post.query.all()
     posts = [i.serialize() for i in posts]
     return jsonify(posts) if posts else jsonify([])
@@ -28,6 +27,9 @@ def get_posts():
 
 @app.route('/posts/new', methods=['POST'])
 def new_post():
+    """
+    API endpoint for creating a new post. Must be authenticated first.
+    """
     data = request.get_json()
     token = data.get('token')
 
@@ -44,6 +46,9 @@ def new_post():
 
 @app.route('/posts/<id>', methods=['GET'])
 def posts(id):
+    """
+    API endpoint for retreiving a specific post by ID.
+    """
     post = Post.query.filter_by(id=id).first()
     return jsonify(post.serialize()) if post else jsonify([])
 
@@ -61,6 +66,10 @@ def create_user():
 
 @app.route('/login', methods=['POST'])
 def login():
+    """
+    API endpoint for logging in. Upon successful login, the user will recieve a token
+    that can be used for authorized API calls.
+    """
     data = request.get_json()
     user = User.query.filter_by(username=data['username']).first()
     token = None
@@ -69,6 +78,7 @@ def login():
             token = TOKEN
     except Exception as e:
         print(e)
+
     return jsonify({'token': token})
 
 

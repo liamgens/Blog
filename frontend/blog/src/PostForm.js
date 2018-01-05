@@ -5,6 +5,7 @@ import TextInput from './TextInput';
 import TextArea from './TextArea';
 import Button from './Button';
 import FileInput from './FileInput';
+import { withRouter } from "react-router-dom";
 const ReactMarkdown = require('react-markdown');
 
 const submit_style = {
@@ -74,8 +75,8 @@ class PostForm extends Component {
             },
             'method': 'post',
             'body': JSON.stringify(json)
-        })
-            .then(response => console.log(response))
+        }).then(response => response.json())
+            .then(json => json)
 
         event.preventDefault();
     }
