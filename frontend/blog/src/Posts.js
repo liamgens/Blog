@@ -24,7 +24,7 @@ class Posts extends Component {
 
     // Added the key prop - although might be a better approach
     for (var i = this.state.posts.length - 1; i >= 0; i--) {
-      posts.push(<PostPreview key={this.state.posts[i].id} id={this.state.posts[i].id} title={this.state.posts[i].title} image={this.state.posts[i].image_url} date={this.state.posts[i].date_posted}> </PostPreview>);
+      posts.push(<PostPreview key={this.state.posts[i].id} id={this.state.posts[i].id} title={this.state.posts[i].title} image={this.state.posts[i].image_url} date={this.state.posts[i].date_posted} description={this.state.posts[i].description}> </PostPreview>);
     }
 
     return (

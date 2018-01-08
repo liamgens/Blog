@@ -1,0 +1,31 @@
+#postPreviewImage {
+    height: 235px;
+}
+
+#postPreviewTitle {
+    width: 87%;
+    float: left;
+    font-size: 1.4em;
+}
+
+#postPreviewDate {
+    width: 13%;
+    float: right;
+    text-align: right;
+    font-size: 0.8em;
+    color: rgb(139, 139, 139);
+}
+
+#postPreviewDescription {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 0.8em;
+    color: rgb(139, 139, 139);
+    line-height: 1.2em;
+}
+
+#postPreviewInfo {
+    margin-top: 10px;
+    width: 100%;
+    height: 1.4em;
+}

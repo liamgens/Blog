@@ -34,7 +34,7 @@ def new_post():
     token = data.get('token')
 
     if verify_token(token):
-        post = Post(data.get('title'), data.get(
+        post = Post(data.get('title'), data.get('description'), data.get(
             'content'), data.get('image_url'))
         db.session.add(post)
         db.session.commit()

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './sidebar.css'
 import ImageUpload from './ImageUpload';
+import PostPreview from './PostPreview';
 import TextInput from './TextInput';
 import TextArea from './TextArea';
 import Button from './Button';
@@ -22,12 +23,14 @@ class PostForm extends Component {
 
         this.state = {
             title: '',
+            description: '',
             content: '',
             file: '',
             image_encoded: ''
         }
 
         this.handleTitleChange = this.handleTitleChange.bind(this);
+        this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
         this.handleContentChange = this.handleContentChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleImageChange = this.handleImageChange.bind(this);
@@ -36,6 +39,10 @@ class PostForm extends Component {
 
     handleTitleChange(event) {
         this.setState({ title: event.target.value })
+    }
+
+    handleDescriptionChange(event) {
+        this.setState({ description: event.target.value })
     }
 
     handleContentChange(event) {
@@ -61,6 +68,7 @@ class PostForm extends Component {
     handleSubmit(event) {
         var json = {
             title: this.state.title,
+            description: this.state.description,
             content: this.state.content,
             image_url: this.state.image_encoded,
             token: this.props.token
@@ -90,12 +98,13 @@ class PostForm extends Component {
                 <div id="edit">
                     <form onSubmit={this.handleSubmit}>
                         <TextInput style={component_style} width="100%" height="auto" type="text" value={this.state.title} onChange={this.handleTitleChange} placeholder="Title" /><br />
+                        <TextArea style={component_style} height="50px" width="100%" type="text" value={this.state.description} onChange={this.handleDescriptionChange} placeholder="Description" /><br />
                         <TextArea style={component_style} height="350px" width="100%" type="text" value={this.state.content} onChange={this.handleContentChange} placeholder="Content" /><br />
                         <div style={component_style}>
                             <FileInput action={this.handleImageChange}></FileInput>
                             <Button style={submit_style} width="115px" type="submit" value="Post" primary>Post</Button>
                         </div>
-                        <img src={this.state.image_encoded} height="100%" width="100%" />
+                        <PostPreview title={this.state.title} description={this.state.description} image={this.state.image_encoded} date={"Mon, 01 Jan 2018"}></PostPreview>
                     </form>
                 </div>
                 <div id="preview" className="wrap" >

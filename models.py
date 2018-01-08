@@ -33,12 +33,14 @@ class Post(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     title = db.Column(db.String(30))
+    description = db.Column(db.String())
     content = db.Column(db.String)
     image_url = db.Column(db.String)
     date_posted = db.Column(db.DateTime, default=datetime.utcnow())
 
-    def __init__(self, title, content, image_url):
+    def __init__(self, title, description, content, image_url):
         self.title = title
+        self.description = description
         self.content = content
         self.image_url = image_url
         self.date_posted = datetime.utcnow()
@@ -47,6 +49,7 @@ class Post(db.Model):
         return {
             "id": self.id,
             "title": self.title,
+            "description": self.description,
             "content": self.content,
             "image_url": self.image_url,
             "date_posted": self.date_posted
