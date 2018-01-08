@@ -8,14 +8,15 @@ import NotFound from './NotFound';
 import TopBar from './TopBar';
 import Login from './Login';
 import './sidebar.css';
+import Cookies from 'universal-cookie';
 
-
+const cookies = new Cookies();
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      token: null
+      token: cookies.get("token")
     }
     this.getLogin = this.getLogin.bind(this);
   }
@@ -44,6 +45,7 @@ class App extends Component {
           this.setState({
             token: token
           })
+          cookies.set('token', token, { path: '/' });
         }
       })
   }

@@ -1,11 +1,7 @@
-import React, {
-  Component
-} from 'react';
+import React, { Component } from 'react';
 import './sidebar.css'
 import './PostPreview.css'
-import {
-  withRouter
-} from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class PostPreview extends Component {
   constructor(props) {
